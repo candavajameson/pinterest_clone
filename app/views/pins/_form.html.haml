@@ -1,0 +1,13 @@
+= form_for @pin, html: { class: 'form-horizontal', mutipart: true } do |f|
+	.row
+		.form-group
+			= f.label :title, class: 'form'
+			= f.text_field :title, class: 'form-control'
+		.form-group
+			= f.label :description , class: 'form'
+			= f.text_area :description, class: 'form-control'
+		.form-group
+			= f.label :banner, class: 'form'
+			= f.file_field :banner, class: 'form-control'
+	.form-action
+		= f.submit "Save", class: 'btn btn-large btn-success'
