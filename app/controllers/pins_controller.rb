@@ -3,7 +3,7 @@ class PinsController < ApplicationController
 	before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
 
 	def index
-		@pins = Pins.page(params[:page]).per(10)
+		@pins = Pin.page(params[:page]).per(10)
 	end
 
 	def new

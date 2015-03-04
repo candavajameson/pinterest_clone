@@ -1,0 +1,27 @@
+/ Fixed navbar
+%nav.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{:href => "#"} Pinterest
+    #navbar.navbar-collapse.collapse
+      %ul.nav.navbar-nav
+        %li.active
+          = link_to "Home", pins_path
+        %li
+          %a{:href => "#about"} About
+        %li
+          %a{:href => "#contact"} Contact
+
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          = link_to "Sign in", new_user_session_path
+        %li
+          = link_to "Sign up", new_user_registration_path
+        %li.active
+          = link_to "Logout", destroy_user_session_path, method: :delete
+    / /.nav-collapse

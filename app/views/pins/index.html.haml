@@ -1,3 +1,10 @@
 %h1 Pinterest Clone
 %hr
 
+#wrapper
+	#columns
+		- @pins.each do |pin|
+			.pin
+				= image_tag(pin.banner_url)
+				%p= pin.title
+				%p= pin.description

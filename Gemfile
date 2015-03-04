@@ -42,6 +42,7 @@ gem "carrierwave"
 
 gem 'simple_form'
 gem 'select2-rails'
+gem 'acts_as_votable', '~> 0.10.0'
 gem 'bootstrap-sass', '~> 3.0'
 gem "font-awesome-rails", '~> 4.2'
 gem 'nprogress-rails'
@@ -52,6 +53,8 @@ group :development do
 	gem 'better_errors'
 end
 
+
+gem 'coffee-script-source', '1.8.0'
 
 
 # Use ActiveModel has_secure_password
