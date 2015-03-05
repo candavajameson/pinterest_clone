@@ -13,9 +13,9 @@
         %li.active
           = link_to "Home", pins_path
         %li
-          %a{:href => "#about"} About
+          = link_to "About", about_path
         %li
-          %a{:href => "#contact"} Contact
+          = link_to "Contact", contact_path
 
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?

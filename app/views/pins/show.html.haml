@@ -1,4 +1,18 @@
 %h1= @pin.title
 %hr
 
-%p= @pin.description
+.pin-main
+	= image_tag(@pin.banner_url)
+	%p= @pin.description
+
+%h1= "More from #{@pin.user.email}" 
+%hr
+
+#wrapper.transitions-enabled.infinite-scroll.clearfix
+	#columns
+		- @pins.each do |pin|
+			.pin
+				= image_tag(pin.banner_url)
+				%p= link_to pin.title, pin_path(pin)
+				%p= pin.description
+

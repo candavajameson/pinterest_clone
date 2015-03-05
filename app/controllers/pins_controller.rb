@@ -1,6 +1,8 @@
 class PinsController < ApplicationController
 
-	before_filter :authenticate_user!, only: [:new, :create, :edit, :update]
+	before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :show]
+	before_filter :set_pin, only: [:show, :edit, :update]
+
 
 	def index
 		@pins = Pin.page(params[:page]).per(10)
@@ -30,6 +32,10 @@ class PinsController < ApplicationController
 		else
 			render 'edit'
 		end
+	end
+
+	def show
+		@pins = @pin.user.pins.where.not(id: params[:id])
 	end
 
 	private
