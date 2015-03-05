@@ -4,6 +4,15 @@
 .pin-main
 	= image_tag(@pin.banner_url)
 	%p= @pin.description
+	
+	- if current_user.voted_for? @pin
+		= link_to dislike_pin_path(@pin), method: :put, class: "btn btn-default" do
+			%span.glyphicon.glyphicon-thumbs-down 
+				=  @pin.get_likes.size
+	- else 
+		= link_to like_pin_path(@pin), method: :put, class: "btn btn-default" do
+			%span.glyphicon.glyphicon-thumbs-up
+				= @pin.get_likes.size
 
 %h1= "More from #{@pin.user.email}" 
 %hr

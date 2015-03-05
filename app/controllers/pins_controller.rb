@@ -1,7 +1,7 @@
 class PinsController < ApplicationController
 
 	before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :show]
-	before_filter :set_pin, only: [:show, :edit, :update]
+	before_filter :set_pin, only: [:show, :edit, :update, :like, :dislike]
 
 
 	def index
@@ -36,6 +36,16 @@ class PinsController < ApplicationController
 
 	def show
 		@pins = @pin.user.pins.where.not(id: params[:id])
+	end
+
+	def like
+		@pin.liked_by current_user
+		redirect_to :back
+	end
+
+	def dislike
+		@pin.unliked_by current_user
+		redirect_to :back
 	end
 
 	private
